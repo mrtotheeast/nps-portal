@@ -201,7 +201,7 @@ export default function LandingPage() {
             <a href="#features" className="lp-nav-link">Features</a>
             <a href="#pricing" className="lp-nav-link">Pricing</a>
             <a href="#faq" className="lp-nav-link">FAQ</a>
-            <button onClick={() => base44.auth.redirectToLogin()} className="lp-nav-link">Sign In</button>
+            <button onClick={() => window.location.href="/Login"} className="lp-nav-link">Sign In</button>
             <button onClick={() => window.location.href = "/onboarding"} className="lp-nav-cta">Get Started</button>
           </div>
         </nav>
@@ -230,7 +230,7 @@ export default function LandingPage() {
                 </div>
               )}
               <div className="lp-hero-btns">
-                <button onClick={() => base44.auth.redirectToLogin()} className="lp-btn-primary">Sign In</button>
+                <button onClick={() => window.location.href="/Login"} className="lp-btn-primary">Sign In</button>
                 <button onClick={() => window.location.href = "/onboarding"} className="lp-btn-secondary">Register Your Company</button>
               </div>
               <p style={{ fontSize:13, color:"#94a3b8", marginTop:16 }}>
@@ -402,7 +402,7 @@ export default function LandingPage() {
             <h2 style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:48, color:"#fff", letterSpacing:".03em", margin:"0 0 16px" }}>Ready to Run a Better Operation?</h2>
             <p style={{ fontSize:16, color:"#8ca3c0", lineHeight:1.7, marginBottom:32 }}>Create your company account in minutes. Select a plan, set up your profile, and invite your team — all before your first shift.</p>
             <div style={{ display:"flex", gap:12, justifyContent:"center", flexWrap:"wrap" }}>
-              <button onClick={() => base44.auth.redirectToLogin()} style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:15, fontWeight:700, letterSpacing:".14em", textTransform:"uppercase", background:"transparent", color:"#C9A84C", padding:"14px 32px", border:"1.5px solid rgba(201,168,76,0.4)", cursor:"pointer" }}>
+              <button onClick={() => window.location.href="/Login"} style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:15, fontWeight:700, letterSpacing:".14em", textTransform:"uppercase", background:"transparent", color:"#C9A84C", padding:"14px 32px", border:"1.5px solid rgba(201,168,76,0.4)", cursor:"pointer" }}>
                 Sign In to My Company
               </button>
               <button onClick={() => window.location.href="/onboarding"} className="lp-btn-primary">

@@ -255,7 +255,7 @@ const AuthenticatedApp = () => {
       <Route path="/accept-invite" element={<ClientInviteAccept />} />
 
       {/* Public CCW Reciprocity Map — accessible from public access page */}
-      <Route path="/CCWReciprocityMap" element={user ? <CCWReciprocityMapPublic /> : <Navigate to="/PublicAccess" replace />} />
+      <Route path="/CCWReciprocityMap" element={user ? <CCWReciprocityMapPublic /> : <Navigate to="/Login" replace />} />
 
       {/* === All layout-wrapped routes share a single Layout instance via LayoutOutlet === */}
       <Route element={<LayoutOutlet />}>
@@ -467,7 +467,7 @@ const AuthenticatedApp = () => {
       <Route path="/ServiceCoverageMap" element={<RoleBasedRoute pageName="ServiceCoverageMap"><ServiceCoverageMap /></RoleBasedRoute>} />
 
       {/* Catch all unauthenticated access to portal routes → PublicAccess */}
-      <Route path="*" element={!user ? <Navigate to="/PublicAccess" replace /> : <PageNotFound />} />
+      <Route path="*" element={!user ? <Navigate to="/Login" replace /> : <PageNotFound />} />
     </Routes>
   );
 };
