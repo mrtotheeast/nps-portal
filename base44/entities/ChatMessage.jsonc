@@ -1,0 +1,58 @@
+{
+  "name": "ChatMessage",
+  "type": "object",
+  "properties": {
+    "channel_id": {
+      "type": "string",
+      "description": "Channel ID this message belongs to"
+    },
+    "sender_id": {
+      "type": "string",
+      "description": "User ID of message sender"
+    },
+    "sender_name": {
+      "type": "string",
+      "description": "Display name of sender"
+    },
+    "sender_photo": {
+      "type": "string",
+      "description": "Photo URL of sender"
+    },
+    "message_text": {
+      "type": "string",
+      "description": "Message text content"
+    },
+    "message_type": {
+      "type": "string",
+      "enum": [
+        "text",
+        "image",
+        "file"
+      ],
+      "default": "text",
+      "description": "Type of message"
+    },
+    "attachment_url": {
+      "type": "string",
+      "description": "URL to attached file or image"
+    },
+    "read_by": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of user IDs who have read this message"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether message is deleted"
+    }
+  },
+  "required": [
+    "channel_id",
+    "sender_id",
+    "sender_name",
+    "message_text"
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "name": "Timesheet",
+  "type": "object",
+  "properties": {
+    "employee_id": {
+      "type": "string",
+      "description": "Foreign key to Employee entity"
+    },
+    "site_id": {
+      "type": "string",
+      "description": "Foreign key to Site entity"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of timesheet entry"
+    },
+    "clock_in": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Clock in timestamp"
+    },
+    "clock_out": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Clock out timestamp"
+    },
+    "clock_in_location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "description": "Clock in GPS location"
+    },
+    "clock_out_location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "description": "Clock out GPS location"
+    },
+    "total_hours": {
+      "type": "number",
+      "description": "Total hours worked"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Approval status"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    },
+    "rejection_reason": {
+      "type": "string",
+      "description": "Reason for rejection if applicable"
+    },
+    "device_type": {
+      "type": "string",
+      "enum": [
+        "mobile",
+        "desktop"
+      ],
+      "description": "Device used for clock in/out"
+    },
+    "clock_in_photo": {
+      "type": "string",
+      "description": "URL to clock in photo"
+    },
+    "clock_out_photo": {
+      "type": "string",
+      "description": "URL to clock out photo"
+    }
+  },
+  "required": [
+    "employee_id",
+    "date"
+  ]
+}

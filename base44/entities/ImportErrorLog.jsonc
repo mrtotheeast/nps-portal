@@ -1,0 +1,93 @@
+{
+  "name": "ImportErrorLog",
+  "type": "object",
+  "properties": {
+    "upload_session_id": {
+      "type": "string",
+      "description": "Unique identifier for this import session"
+    },
+    "uploaded_by": {
+      "type": "string",
+      "description": "User ID of the person who initiated the import"
+    },
+    "uploaded_by_name": {
+      "type": "string",
+      "description": "Full name of the person who initiated the import"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Original file name uploaded"
+    },
+    "total_rows": {
+      "type": "number",
+      "description": "Total rows in the file"
+    },
+    "successful_imports": {
+      "type": "number",
+      "description": "Number of successfully imported records"
+    },
+    "failed_imports": {
+      "type": "number",
+      "description": "Number of failed import records"
+    },
+    "import_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the import was attempted"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "row_number": {
+            "type": "number",
+            "description": "Row number in the file (1-indexed)"
+          },
+          "error_type": {
+            "type": "string",
+            "enum": [
+              "missing_field",
+              "invalid_format",
+              "duplicate_email",
+              "invalid_value"
+            ],
+            "description": "Type of error"
+          },
+          "field_name": {
+            "type": "string",
+            "description": "Name of the field that caused the error"
+          },
+          "error_message": {
+            "type": "string",
+            "description": "Detailed error message"
+          },
+          "row_data": {
+            "type": "string",
+            "description": "The problematic row data (sanitized)"
+          }
+        }
+      },
+      "description": "Array of detailed error objects"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "partially_failed",
+        "failed"
+      ],
+      "description": "Overall status of the import session"
+    }
+  },
+  "required": [
+    "upload_session_id",
+    "uploaded_by",
+    "file_name",
+    "total_rows",
+    "successful_imports",
+    "failed_imports",
+    "import_date",
+    "status"
+  ]
+}

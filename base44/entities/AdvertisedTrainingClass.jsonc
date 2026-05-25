@@ -1,0 +1,49 @@
+{
+  "name": "AdvertisedTrainingClass",
+  "type": "object",
+  "properties": {
+    "course_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "time": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "instructor_name": {
+      "type": "string"
+    },
+    "max_seats": {
+      "type": "number"
+    },
+    "enrolled_count": {
+      "type": "number",
+      "default": 0
+    },
+    "registration_link": {
+      "type": "string",
+      "default": "https://nationwidepoliceservicesllc.as.me/schedule/549dc3bd"
+    },
+    "cost": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "course_name",
+    "date",
+    "time",
+    "location"
+  ]
+}

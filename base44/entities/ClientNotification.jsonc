@@ -1,0 +1,49 @@
+{
+  "name": "ClientNotification",
+  "type": "object",
+  "properties": {
+    "site_id": {
+      "type": "string",
+      "description": "Site this notification is for"
+    },
+    "client_id": {
+      "type": "string",
+      "description": "Client user ID who sent the message"
+    },
+    "client_name": {
+      "type": "string",
+      "description": "Client's display name"
+    },
+    "message": {
+      "type": "string",
+      "description": "The message content"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "high",
+        "urgent"
+      ],
+      "default": "normal",
+      "description": "Message priority"
+    },
+    "acknowledged_by": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of user IDs who have acknowledged this notification"
+    },
+    "sent_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the message was sent"
+    }
+  },
+  "required": [
+    "site_id",
+    "message",
+    "sent_at"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "OnboardingDocument",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "document_url": {
+      "type": "string"
+    },
+    "version": {
+      "type": "number",
+      "default": 1
+    },
+    "required_for": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of roles that require this document (e.g. ['admin', 'employee', 'all'])"
+    },
+    "requires_signature": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "title",
+    "document_url",
+    "required_for"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "AppSettings",
+  "type": "object",
+  "properties": {
+    "setting_key": {
+      "type": "string"
+    },
+    "setting_value": {
+      "type": "string"
+    },
+    "setting_type": {
+      "type": "string",
+      "enum": [
+        "boolean",
+        "string",
+        "number"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "timekeeping",
+        "general",
+        "security"
+      ]
+    },
+    "last_modified_by": {
+      "type": "string"
+    },
+    "last_modified_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "setting_key",
+    "setting_value",
+    "setting_type",
+    "category"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "SiteDocument",
+  "type": "object",
+  "properties": {
+    "site_id": {
+      "type": "string",
+      "description": "Foreign key to Site entity"
+    },
+    "client_id": {
+      "type": "string",
+      "description": "Foreign key to Client entity"
+    },
+    "document_type": {
+      "type": "string",
+      "enum": [
+        "sop",
+        "contract",
+        "photo"
+      ],
+      "description": "Type: sop (visible to admin/supervisor/assigned officers), contract (admin/client only), photo"
+    },
+    "file_name": {
+      "type": "string"
+    },
+    "file_url": {
+      "type": "string"
+    },
+    "uploaded_by": {
+      "type": "string",
+      "description": "User email of uploader"
+    },
+    "uploaded_by_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "site_id",
+    "document_type",
+    "file_name",
+    "file_url"
+  ]
+}

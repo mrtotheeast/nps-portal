@@ -1,0 +1,88 @@
+{
+  "name": "Notification",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "User ID who receives this notification"
+    },
+    "title": {
+      "type": "string",
+      "description": "Notification title"
+    },
+    "message": {
+      "type": "string",
+      "description": "Notification message body"
+    },
+    "notification_type": {
+      "type": "string",
+      "enum": [
+        "shift_assigned",
+        "schedule_published",
+        "shift_reminder",
+        "shift_swap_request",
+        "clock_in_missed",
+        "clock_out_missed",
+        "timesheet_approved",
+        "timesheet_rejected",
+        "pto_request_submitted",
+        "pto_request_approved",
+        "pto_request_denied",
+        "training_assigned",
+        "training_due_soon",
+        "training_completed",
+        "incident_submitted",
+        "incident_approved",
+        "incident_rejected",
+        "gps_violation",
+        "patrol_incomplete",
+        "patrol_completed",
+        "credential_expiring",
+        "credential_expired",
+        "announcement",
+        "chat_message",
+        "client_message",
+        "client_deleted",
+        "contract_renewal",
+        "invoice_overdue",
+        "invoice_paid",
+        "employee_invited",
+        "employee_added",
+        "onboarding_document",
+        "ccw_updated",
+        "duplicate_detected",
+        "account_deletion_request"
+      ],
+      "description": "Type of notification"
+    },
+    "destination_page": {
+      "type": "string",
+      "description": "Page to navigate to (e.g. Schedule, Timesheet, MyTrainings)"
+    },
+    "destination_id": {
+      "type": "string",
+      "description": "ID of the specific record (shift ID, incident ID, etc.)"
+    },
+    "destination_filter": {
+      "type": "string",
+      "description": "Optional filter to apply on destination page (e.g. status:pending)"
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether notification has been read"
+    },
+    "read_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the notification was read"
+    }
+  },
+  "required": [
+    "user_id",
+    "title",
+    "message",
+    "notification_type",
+    "destination_page"
+  ]
+}

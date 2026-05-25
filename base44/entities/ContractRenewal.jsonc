@@ -1,0 +1,42 @@
+{
+  "name": "ContractRenewal",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "Foreign key to Client entity"
+    },
+    "renewal_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the renewal was processed"
+    },
+    "old_expiration_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Previous contract end date"
+    },
+    "new_expiration_date": {
+      "type": "string",
+      "format": "date",
+      "description": "New contract end date after renewal"
+    },
+    "renewal_term_years": {
+      "type": "number",
+      "description": "Length of renewal term in years"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes about the renewal"
+    },
+    "processed_by": {
+      "type": "string",
+      "description": "User email who processed the renewal"
+    }
+  },
+  "required": [
+    "client_id",
+    "renewal_date",
+    "new_expiration_date"
+  ]
+}

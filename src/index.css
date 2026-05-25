@@ -1,0 +1,417 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Landscape: allow natural scroll, don't clip ─── */
+@media (orientation: landscape) {
+  body { height: auto; }
+  main { max-height: none; }
+}
+@media (hover: none) and (pointer: coarse) {
+  button, a, input, select, textarea { min-height: 44px; min-width: 44px; }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 43 65% 47%;
+    --chart-2: 0 0% 20%;
+    --chart-3: 0 0% 45%;
+    --chart-4: 43 50% 65%;
+    --chart-5: 0 0% 70%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 18%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217 33% 22%;
+    --input: 217 33% 22%;
+    --ring: 43 65% 47%;
+    --chart-1: 43 65% 47%;
+    --chart-2: 0 0% 70%;
+    --chart-3: 0 0% 50%;
+    --chart-4: 43 50% 65%;
+    --chart-5: 0 0% 30%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  body { 
+    @apply bg-background text-foreground;
+    font-size: 1rem;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ─── Dark mode: ensure all text is readable ─── */
+  .dark body,
+  .dark {
+    color: hsl(var(--foreground));
+    background-color: #0f172a;
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #ffffff;
+  }
+
+  .dark p, .dark span, .dark label, .dark li {
+    color: #f1f5f9;
+  }
+
+  .dark td, .dark th {
+    color: #f1f5f9;
+  }
+
+  /* Page backgrounds in dark mode */
+  .dark .min-h-screen,
+  .dark [class*="bg-slate-50"],
+  .dark [class*="bg-gray-50"] {
+    background-color: #0f172a !important;
+  }
+
+  /* Cards / panels in dark mode */
+  .dark [class*="bg-white"] {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+  }
+  .dark [class*="bg-slate-100"] {
+    background-color: #334155 !important;
+    color: #f1f5f9 !important;
+  }
+  .dark [class*="bg-slate-200"] {
+    background-color: #334155 !important;
+  }
+
+  /* Text color overrides for dark mode */
+  .dark .text-slate-900 { color: #f1f5f9 !important; }
+  .dark .text-slate-800 { color: #e2e8f0 !important; }
+  .dark .text-slate-700 { color: #cbd5e1 !important; }
+  .dark .text-slate-600 { color: #94a3b8 !important; }
+  .dark .text-slate-500 { color: #94a3b8 !important; }
+  .dark .text-gray-900  { color: #f1f5f9 !important; }
+  .dark .text-gray-800  { color: #e2e8f0 !important; }
+  .dark .text-gray-700  { color: #cbd5e1 !important; }
+  .dark .text-gray-600  { color: #94a3b8 !important; }
+  .dark .text-gray-500  { color: #94a3b8 !important; }
+
+  /* Border colors in dark mode */
+  .dark .border-slate-200 { border-color: #334155 !important; }
+  .dark .border-slate-100 { border-color: #1e293b !important; }
+  .dark .border-gray-200  { border-color: #334155 !important; }
+  .dark .border-gray-100  { border-color: #1e293b !important; }
+
+  /* Input fields in dark mode */
+  .dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  .dark textarea,
+  .dark select {
+    background-color: #334155 !important;
+    color: #ffffff !important;
+    border-color: #475569 !important;
+  }
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: #64748b !important;
+    opacity: 1;
+  }
+  .dark input:focus,
+  .dark textarea:focus,
+  .dark select:focus {
+    border-color: #c9a227 !important;
+    outline-color: #c9a227 !important;
+  }
+
+  /* Tables in dark mode */
+  .dark table {
+    background-color: transparent;
+  }
+  .dark thead tr {
+    background-color: #0f172a !important;
+  }
+  .dark thead th {
+    color: #ffffff !important;
+    background-color: #0f172a !important;
+  }
+  .dark tbody tr:nth-child(odd) {
+    background-color: #1e293b !important;
+  }
+  .dark tbody tr:nth-child(even) {
+    background-color: #243146 !important;
+  }
+  .dark tbody tr:hover {
+    background-color: #1a2b4a !important;
+  }
+
+  /* Dropdowns / popovers in dark mode */
+  .dark [role="listbox"],
+  .dark [role="menu"],
+  .dark [data-radix-select-content],
+  .dark [data-radix-dropdown-menu-content],
+  .dark [data-radix-popover-content] {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+  }
+  .dark [role="option"]:hover,
+  .dark [role="menuitem"]:hover,
+  .dark [data-highlighted] {
+    background-color: #1a2b4a !important;
+    color: #c9a227 !important;
+  }
+
+  /* Skeleton loaders in dark mode */
+  .dark .animate-pulse > div,
+  .dark [class*="skeleton"],
+  .dark [class*="Skeleton"] {
+    background-color: #334155 !important;
+  }
+
+  /* Modal / dialog in dark mode */
+  .dark [role="dialog"] {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+  }
+  .dark [role="dialog"] h1,
+  .dark [role="dialog"] h2,
+  .dark [role="dialog"] h3 {
+    color: #ffffff !important;
+  }
+
+  /* Status badge improvements in dark mode */
+  .dark .bg-green-50  { background-color: #166534 !important; }
+  .dark .text-green-700 { color: #bbf7d0 !important; }
+  .dark .text-green-600 { color: #4ade80 !important; }
+  .dark .bg-red-50    { background-color: #991b1b !important; }
+  .dark .text-red-700 { color: #fecaca !important; }
+  .dark .text-red-600 { color: #f87171 !important; }
+  .dark .bg-yellow-50 { background-color: #92400e !important; }
+  .dark .text-yellow-700 { color: #fef3c7 !important; }
+  .dark .bg-blue-50   { background-color: #0f172a !important; }
+  .dark .text-blue-700 { color: #c9a227 !important; }
+  .dark .text-blue-600 { color: #e6c35c !important; }
+  .dark .bg-blue-100  { background-color: #1e293b !important; }
+  .dark .text-blue-900 { color: #f1f5f9 !important; }
+  .dark .bg-amber-50  { background-color: #78350f !important; }
+  .dark .text-amber-800 { color: #fef3c7 !important; }
+  .dark .border-amber-200 { border-color: #92400e !important; }
+  
+  /* Dark navy buttons → gold text app-wide */
+  .dark [class*="bg-\[#1a2b4a\]"],
+  .dark button[style*="#1a2b4a"],
+  .dark [class*="bg-slate-900"],
+  .dark [class*="bg-\[#0b1f3a\]"] { color: #c9a227 !important; }
+  
+  /* Blue button overrides for dark mode — ensure readable text */
+  .dark button[class*="bg-blue"],
+  .dark [class*="bg-blue"] { color: #f1f5f9 !important; }
+  .dark .bg-blue-50,
+  .dark .bg-blue-100,
+  .dark .bg-blue-200 { background-color: #1e293b !important; color: #c9a227 !important; }
+  .dark button[class*="bg-blue"]:hover { color: #ffffff !important; }
+  
+  /* Primary blue buttons in dark mode */
+  .dark button.bg-primary:not(.bg-\[#1a2b4a\]) { color: #f1f5f9 !important; }
+  .dark button.bg-blue-600,
+  .dark button.bg-blue-700 { color: #ffffff !important; }
+  
+  /* All buttons with blue-ish backgrounds ensure contrast */
+  .dark [style*="background"][style*="#"] button,
+  .dark [style*="bg-blue"] button { color: #f1f5f9 !important; }
+  
+  /* Admin badge styling in dark mode — scoped to badge/span elements only */
+  .dark span[class*="bg-red"],
+  .dark span[class*="text-red"] {
+    background-color: #fce4ec !important;
+    color: #c41c3b !important;
+  }
+  
+
+
+  /* Muted / helper text */
+  .dark .text-muted-foreground { color: #94a3b8 !important; }
+
+  /* Chart / recharts in dark mode */
+  .dark .recharts-cartesian-grid line { stroke: #334155; }
+  .dark .recharts-text { fill: #94a3b8; }
+  .dark .recharts-tooltip-wrapper .recharts-default-tooltip {
+    background-color: #0f172a !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+  }
+
+  /* All page root divs with min-h-screen should scroll freely */
+  .min-h-screen {
+    min-height: 100vh;
+  }
+
+  /* Reduce motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Fix text selection colors in dark mode */
+  ::selection {
+    background-color: #c9a227;
+    color: #1a2b4a;
+  }
+  .dark ::selection {
+    background-color: #c9a84c;
+    color: #0b1f3a;
+  }
+
+  /* Fix select/input option text in dark mode */
+  .dark select option {
+    background-color: #0b1f3a;
+    color: #c9a84c;
+  }
+  .dark [data-radix-popper-content-wrapper] {
+    color-scheme: dark;
+  }
+
+  /* Ensure sufficient contrast for placeholders */
+  input::placeholder,
+  textarea::placeholder {
+    opacity: 0.7;
+  }
+
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Scrollable tab bars */
+  [role="tablist"] {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+  [role="tablist"] [role="tab"] { flex-shrink: 0; }
+
+  /* All tables scroll horizontally on mobile */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  /* Modals fit viewport and scroll internally */
+  [role="dialog"] {
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+
+  /* Modals use overflow-hidden legitimately — don't break them globally */
+}
+
+/* ─── Bottom nav clearance — all page wrappers get breathing room ─── */
+@media (max-width: 768px) {
+  /* Pages that use min-h-screen as their root wrapper */
+  .min-h-screen {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* ─── Global table horizontal scroll wrapper ─── */
+.table-scroll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+/* ─── Responsive grid helpers ─── */
+@media (max-width: 640px) {
+  /* Force 2-col grids to single column */
+  .grid-cols-2 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  /* Force 3-col grids to 2 columns */
+  .grid-cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Force 4-col grids to 2 columns */
+  .grid-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) and (min-width: 641px) {
+  /* Tablet: 4-col → 2-col */
+  .grid-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ─── Text overflow: never silently clip important text ─── */
+.truncate-safe {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* ─── Ensure modals are never full-screen on desktop ─── */
+@media (min-width: 1024px) {
+  [role="dialog"] > div {
+    max-width: min(90vw, 640px);
+  }
+}

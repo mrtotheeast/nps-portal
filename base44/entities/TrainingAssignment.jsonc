@@ -1,0 +1,74 @@
+{
+  "name": "TrainingAssignment",
+  "type": "object",
+  "properties": {
+    "employee_id": {
+      "type": "string",
+      "description": "Foreign key to Employee entity"
+    },
+    "training_id": {
+      "type": "string",
+      "description": "Foreign key to Training entity"
+    },
+    "assigned_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When training was assigned"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Training due date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "in_progress",
+        "completed",
+        "overdue"
+      ],
+      "default": "not_started",
+      "description": "Completion status"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When employee started training"
+    },
+    "completion_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When employee completed training"
+    },
+    "progress_percentage": {
+      "type": "number",
+      "default": 0,
+      "description": "Training progress 0-100"
+    },
+    "quiz_score": {
+      "type": "number",
+      "description": "Quiz score if applicable"
+    },
+    "final_exam_score": {
+      "type": "number",
+      "description": "Final exam score"
+    },
+    "final_exam_passed": {
+      "type": "boolean",
+      "description": "Did employee pass final exam"
+    },
+    "certificate_url": {
+      "type": "string",
+      "description": "URL to completion certificate"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    }
+  },
+  "required": [
+    "employee_id",
+    "training_id"
+  ]
+}

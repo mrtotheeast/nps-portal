@@ -1,0 +1,77 @@
+{
+  "name": "PTORequest",
+  "type": "object",
+  "properties": {
+    "employee_id": {
+      "type": "string",
+      "description": "Foreign key to Employee entity"
+    },
+    "request_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When request was submitted"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "PTO start date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "PTO end date"
+    },
+    "hours_requested": {
+      "type": "number",
+      "description": "Number of hours requested"
+    },
+    "pto_type": {
+      "type": "string",
+      "enum": [
+        "vacation",
+        "sick",
+        "personal",
+        "unpaid"
+      ],
+      "description": "Type of PTO"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "cancelled"
+      ],
+      "default": "pending",
+      "description": "Approval status"
+    },
+    "approved_by_id": {
+      "type": "string",
+      "description": "Foreign key to Employee entity - supervisor who approved"
+    },
+    "approval_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When approval decision was made"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for PTO request"
+    },
+    "rejection_reason": {
+      "type": "string",
+      "description": "Reason for rejection if applicable"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    }
+  },
+  "required": [
+    "employee_id",
+    "start_date",
+    "end_date",
+    "pto_type"
+  ]
+}

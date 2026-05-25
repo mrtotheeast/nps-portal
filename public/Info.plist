@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>NPS Portal uses your location for three specific purposes: (1) Geofenced clock-in and clock-out — the app verifies your GPS coordinates match your assigned post before recording your shift start or end. For example, if you are assigned to Franklin Square, the app confirms you are physically on-site before clocking in. (2) Patrol route tracking — during an active patrol session, the app records your GPS path and logs each checkpoint arrival to verify your route was completed. (3) Site check-in verification — when you perform a site check-in, your GPS location is saved to confirm physical presence at the correct address. Location is only collected while you are actively using these features and is never collected in the background.</string>
+</dict>
+</plist>

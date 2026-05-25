@@ -1,0 +1,75 @@
+{
+  "name": "Company",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Company or organization name"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-safe unique identifier for the company"
+    },
+    "owner_email": {
+      "type": "string",
+      "description": "Email of the company owner/primary admin"
+    },
+    "logo_url": {
+      "type": "string",
+      "description": "URL to company logo image"
+    },
+    "primary_color": {
+      "type": "string",
+      "default": "#1a2b4a",
+      "description": "Primary brand color (hex code)"
+    },
+    "subscription_plan": {
+      "type": "string",
+      "enum": [
+        "free",
+        "professional",
+        "enterprise"
+      ],
+      "default": "professional",
+      "description": "Current subscription tier"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "suspended",
+        "cancelled"
+      ],
+      "default": "active",
+      "description": "Company account status"
+    },
+    "max_users": {
+      "type": "number",
+      "default": 100,
+      "description": "Maximum users allowed on plan"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Enabled features for this plan",
+      "default": [
+        "core",
+        "scheduling",
+        "patrol",
+        "incidents"
+      ]
+    },
+    "is_platform_owner": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, this company owns the platform and is exempt from all billing/subscription charges"
+    }
+  },
+  "required": [
+    "name",
+    "slug",
+    "owner_email"
+  ]
+}

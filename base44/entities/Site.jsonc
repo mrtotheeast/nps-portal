@@ -1,0 +1,100 @@
+{
+  "name": "Site",
+  "type": "object",
+  "properties": {
+    "company_id": {
+      "type": "string",
+      "description": "Foreign key to Company entity (tenant isolation)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Site name (required)"
+    },
+    "address": {
+      "type": "string",
+      "description": "Street address (required)"
+    },
+    "city": {
+      "type": "string",
+      "description": "City (required)"
+    },
+    "state": {
+      "type": "string",
+      "description": "State (required)"
+    },
+    "zip": {
+      "type": "string",
+      "description": "ZIP code (required)"
+    },
+    "client_id": {
+      "type": "string",
+      "description": "Foreign key to Client entity"
+    },
+    "geofence_radius": {
+      "type": "number",
+      "default": 300,
+      "description": "Geofence radius in feet"
+    },
+    "site_type": {
+      "type": "string",
+      "description": "Type of site (e.g. Commercial, Residential, Government)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "default": "active",
+      "description": "Site status"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes about the site"
+    },
+    "assigned_officers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of employee IDs assigned to this site"
+    },
+    "qr_code_url": {
+      "type": "string",
+      "description": "URL to site QR code"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "GPS latitude coordinate"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "GPS longitude coordinate"
+    },
+    "formatted_address": {
+      "type": "string",
+      "description": "Formatted address returned from geocoding"
+    },
+    "geocode_error": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if geocoding failed"
+    },
+    "geocode_error_message": {
+      "type": "string",
+      "description": "Geocoding error details"
+    },
+    "geocoded_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this site was last geocoded"
+    }
+  },
+  "required": [
+    "name",
+    "address",
+    "city",
+    "state",
+    "zip"
+  ]
+}

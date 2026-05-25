@@ -1,0 +1,43 @@
+{
+  "name": "TimesheetTemplate",
+  "type": "object",
+  "properties": {
+    "employee_id": {
+      "type": "string",
+      "description": "Owner employee user ID"
+    },
+    "name": {
+      "type": "string",
+      "description": "Template name (e.g. 'Mon-Fri 8-4')"
+    },
+    "clock_in_time": {
+      "type": "string",
+      "description": "Default clock-in time HH:MM"
+    },
+    "clock_out_time": {
+      "type": "string",
+      "description": "Default clock-out time HH:MM"
+    },
+    "typical_hours": {
+      "type": "number",
+      "description": "Expected total hours"
+    },
+    "days_of_week": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "Days 0=Sun to 6=Sat this template applies to"
+    },
+    "site_id": {
+      "type": "string",
+      "description": "Associated site if applicable"
+    }
+  },
+  "required": [
+    "employee_id",
+    "name",
+    "clock_in_time",
+    "clock_out_time"
+  ]
+}

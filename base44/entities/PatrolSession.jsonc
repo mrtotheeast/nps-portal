@@ -1,0 +1,66 @@
+{
+  "name": "PatrolSession",
+  "type": "object",
+  "properties": {
+    "employee_id": {
+      "type": "string",
+      "description": "Foreign key to Employee entity"
+    },
+    "site_id": {
+      "type": "string",
+      "description": "Foreign key to Site entity"
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When patrol started"
+    },
+    "end_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When patrol ended"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "cancelled"
+      ],
+      "default": "active",
+      "description": "Patrol status"
+    },
+    "total_checkpoints": {
+      "type": "number",
+      "description": "Total checkpoints in patrol route"
+    },
+    "scanned_checkpoints": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of checkpoints completed"
+    },
+    "route_points": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "GPS coordinates of patrol route"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Patrol notes or observations"
+    },
+    "photo_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs to photos taken during patrol"
+    }
+  },
+  "required": [
+    "employee_id",
+    "site_id",
+    "start_time"
+  ]
+}

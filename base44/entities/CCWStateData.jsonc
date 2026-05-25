@@ -1,0 +1,111 @@
+{
+  "name": "CCWStateData",
+  "type": "object",
+  "properties": {
+    "state_code": {
+      "type": "string",
+      "description": "Two-letter state code"
+    },
+    "state_name": {
+      "type": "string",
+      "description": "Full state name"
+    },
+    "permit_required": {
+      "type": "boolean",
+      "description": "Is a permit required for concealed carry?"
+    },
+    "constitutional_carry": {
+      "type": "boolean",
+      "description": "Is constitutional (permitless) carry allowed?"
+    },
+    "open_carry": {
+      "type": "boolean",
+      "description": "Is open carry allowed?"
+    },
+    "min_age": {
+      "type": "number",
+      "description": "Minimum age for concealed carry permit"
+    },
+    "permit_type": {
+      "type": "string",
+      "enum": [
+        "shall-issue",
+        "may-issue",
+        "no-issue",
+        "permitless"
+      ],
+      "description": "Permit issuance type"
+    },
+    "honors_these_states": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "State codes this state honors"
+    },
+    "honored_by_these_states": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "State codes that honor this state's permit"
+    },
+    "restricted_reciprocity_states": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "States with restricted/conditional reciprocity"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Summary of gun laws"
+    },
+    "self_defense_laws": {
+      "type": "string",
+      "description": "Stand your ground / castle doctrine info"
+    },
+    "red_flag_law": {
+      "type": "boolean",
+      "description": "Does state have red flag / ERPO law?"
+    },
+    "permit_fee": {
+      "type": "string",
+      "description": "Permit application fee"
+    },
+    "processing_time": {
+      "type": "string",
+      "description": "Typical processing time"
+    },
+    "training_required": {
+      "type": "string",
+      "description": "Training requirements"
+    },
+    "recent_changes": {
+      "type": "string",
+      "description": "Enacted law changes in the past 90 days that are now in effect (signed and active). Null if no recent enacted changes."
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date",
+      "description": "Date data was last verified"
+    },
+    "last_checked": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last time agent checked for updates"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes and restrictions"
+    },
+    "official_source_url": {
+      "type": "string",
+      "description": "Official state firearms licensing URL"
+    }
+  },
+  "required": [
+    "state_code",
+    "state_name"
+  ]
+}

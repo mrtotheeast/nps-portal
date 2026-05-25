@@ -1,0 +1,40 @@
+{
+  "name": "ChatChannel",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Channel name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Channel description"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "User ID of channel creator"
+    },
+    "member_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of employee IDs in the channel"
+    },
+    "site_id": {
+      "type": "string",
+      "description": "Optional site ID for site-specific channels"
+    },
+    "is_company_wide": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is a company-wide channel"
+    }
+  },
+  "required": [
+    "name",
+    "created_by",
+    "member_ids",
+    "is_company_wide"
+  ]
+}

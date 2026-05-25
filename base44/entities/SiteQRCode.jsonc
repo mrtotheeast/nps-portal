@@ -1,0 +1,33 @@
+{
+  "name": "SiteQRCode",
+  "type": "object",
+  "properties": {
+    "site_id": {
+      "type": "string",
+      "description": "Foreign key to Site entity"
+    },
+    "qr_code_data": {
+      "type": "string",
+      "description": "QR code raw data/URL encoded content"
+    },
+    "qr_code_url": {
+      "type": "string",
+      "description": "URL to the generated QR code image"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "User ID who created the QR code"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this QR code is currently active"
+    }
+  },
+  "required": [
+    "site_id",
+    "qr_code_data",
+    "qr_code_url",
+    "created_by"
+  ]
+}

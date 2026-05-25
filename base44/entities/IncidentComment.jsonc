@@ -1,0 +1,41 @@
+{
+  "name": "IncidentComment",
+  "type": "object",
+  "properties": {
+    "incident_id": {
+      "type": "string",
+      "description": "Foreign key to Incident entity"
+    },
+    "author_id": {
+      "type": "string",
+      "description": "User ID or employee ID of commenter"
+    },
+    "author_name": {
+      "type": "string"
+    },
+    "author_role": {
+      "type": "string",
+      "enum": [
+        "client",
+        "supervisor",
+        "officer",
+        "admin"
+      ]
+    },
+    "comment": {
+      "type": "string"
+    },
+    "notified_users": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "User IDs notified about this comment"
+    }
+  },
+  "required": [
+    "incident_id",
+    "author_name",
+    "comment"
+  ]
+}

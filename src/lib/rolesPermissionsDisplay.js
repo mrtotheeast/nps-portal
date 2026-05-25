@@ -1,0 +1,117 @@
+// Human-readable display config for RolesPermissions page
+// Actual access control enforcement is in lib/rbac.js
+
+// Personal employee features shared by employee/officer and shown as 2nd column for supervisor/manager
+export const EMPLOYEE_PERSONAL_FEATURES = [
+  { section: "My Work", items: ["My Schedule", "My Timesheet", "Shift Requests", "My PTO"] },
+  { section: "My Development", items: ["My Training", "My Credentials", "CCW Reciprocity Map"] },
+  { section: "My Documents", items: ["My Documents", "Uniform Request", "Company Policies"] },
+  { section: "Communication", items: ["WorkChat", "Announcements"] },
+  { section: "My Account", items: ["My Profile", "Employee Settings", "Help"] },
+];
+
+export const ROLE_PERMISSIONS_DISPLAY = [
+  {
+    key: "super_admin",
+    label: "Super Administrator",
+    dashboard: "AdminDashboard",
+    badgeClass: "bg-[#c9a227] text-[#1a2b4a]",
+    description: "Full system access. All features locked on — cannot be disabled.",
+    locked: true,
+    capabilities: [
+      { section: "All Features", items: ["Full access to every feature, page, and setting in the system — always enabled"] },
+    ],
+  },
+  {
+    key: "admin",
+    label: "Administrator",
+    dashboard: "AdminDashboard",
+    badgeClass: "bg-[#1a2b4a] text-white",
+    description: "Full operational access. All features locked on — cannot be disabled.",
+    locked: true,
+    capabilities: [
+      { section: "People", items: ["View/Edit Employees", "Invite Users", "Bulk Actions", "Profile Photo Approval", "Position Management"] },
+      { section: "Scheduling", items: ["Create Shifts", "Edit Shifts", "Publish Schedule", "Shift Bidding", "Availability Settings"] },
+      { section: "Timekeeping", items: ["View All Timesheets", "Approve/Reject", "Clock In/Out Security", "Payroll Export"] },
+      { section: "Clients", items: ["Client Management", "Contracts", "Invoices", "Client Portal", "Communication Hub"] },
+      { section: "Sites", items: ["Create/Edit Sites", "QR Codes", "Geofence Config", "Site Inspections"] },
+      { section: "Incidents", items: ["Create", "Approve/Deny", "Manage All Reports", "AI Analysis"] },
+      { section: "Training", items: ["Build Modules", "Assign Training", "View Completions", "AI Builder", "Certificates"] },
+      { section: "Credentials", items: ["View All", "Add/Edit/Delete", "Expiry Monitoring"] },
+      { section: "PTO", items: ["Approve/Deny Requests", "Adjust Balances", "PTO Settings", "Calendar View"] },
+      { section: "Documents", items: ["Upload", "Manage Library", "Policy Management", "Onboarding Docs"] },
+      { section: "Reports & Analytics", items: ["All Reports", "AI Reports", "Patrol Analytics", "Officer Analytics"] },
+      { section: "Settings", items: ["Company Settings", "Roles & Permissions", "Timekeeping Security", "Data Import", "Audit Log"] },
+    ],
+  },
+  {
+    key: "manager",
+    label: "Manager",
+    dashboard: "ManagerDashboard",
+    badgeClass: "bg-purple-600 text-white",
+    description: "Full management access. Uses dual-view: Manager View for oversight, Employee View for personal features.",
+    dualView: true,
+    managementFeatures: [
+      { section: "Team Management", items: ["My Team", "Employee Reviews", "Assign Shifts", "Assign Schedules", "Assign Training", "PTO Requests"] },
+      { section: "Operations", items: ["Live Map", "Active Patrols", "Site Check-In", "GPS Violations", "Schedule Management", "Payroll Overview", "Site Management"] },
+      { section: "Incidents", items: ["Incident Approval", "Incident Reports"] },
+      { section: "People & HR", items: ["Employee Directory", "Bulk Employee Actions", "Performance Reviews", "Onboarding"] },
+      { section: "Training", items: ["All Training Courses", "Training Assignments", "Training Leaderboard"] },
+      { section: "Reporting", items: ["Analytics Dashboard", "Officer Analytics", "Custom AI Reports", "Team Reports", "Site Reports"] },
+      { section: "Communication", items: ["WorkChat", "Announcements"] },
+    ],
+    personalFeatures: EMPLOYEE_PERSONAL_FEATURES,
+    capabilities: [], // not used for dual-view roles
+  },
+  {
+    key: "supervisor",
+    label: "Supervisor",
+    dashboard: "SupervisorDashboard",
+    badgeClass: "bg-blue-600 text-white",
+    description: "Team supervision access. Uses dual-view: Supervisor View for management, Employee View for personal features.",
+    dualView: true,
+    managementFeatures: [
+      { section: "Team Management", items: ["My Team", "Employee Reviews", "Assign Shifts", "Assign Schedules", "Assign Training", "PTO Requests"] },
+      { section: "Operations", items: ["Live Map", "Active Patrols", "Site Check-In", "GPS Violations"] },
+      { section: "Incidents", items: ["Incident Approval", "Incident Reports"] },
+      { section: "Training", items: ["All Training Courses", "Training Assignments", "Training Leaderboard"] },
+      { section: "Reports", items: ["Team Reports", "Site Reports"] },
+      { section: "Communication", items: ["WorkChat", "Announcements"] },
+    ],
+    personalFeatures: EMPLOYEE_PERSONAL_FEATURES,
+    capabilities: [],
+  },
+  {
+    key: "officer",
+    label: "Officer",
+    dashboard: "OfficerDashboard",
+    badgeClass: "bg-emerald-600 text-white",
+    description: "Field officer. Personal features only.",
+    capabilities: EMPLOYEE_PERSONAL_FEATURES,
+  },
+  {
+    key: "employee",
+    label: "Employee",
+    dashboard: "EmployeeDashboard",
+    badgeClass: "bg-slate-500 text-white",
+    description: "Standard employee. Personal features only.",
+    capabilities: EMPLOYEE_PERSONAL_FEATURES,
+  },
+  {
+    key: "client",
+    label: "Client",
+    dashboard: "ClientDashboard",
+    badgeClass: "bg-cyan-600 text-white",
+    description: "External client portal access.",
+    capabilities: [
+      { section: "Dashboard", items: ["Client Dashboard", "Secure Dashboard"] },
+      { section: "Schedule", items: ["View Site Schedule"] },
+      { section: "Incidents", items: ["View Incident Reports"] },
+      { section: "Patrol", items: ["View Patrol Reports"] },
+      { section: "Invoices", items: ["View Invoices"] },
+      { section: "Communication", items: ["Communication Hub", "Service Requests"] },
+      { section: "Documents", items: ["View Site Documents"] },
+      { section: "Sites", items: ["View Site Map", "Site Settings"] },
+    ],
+  },
+];

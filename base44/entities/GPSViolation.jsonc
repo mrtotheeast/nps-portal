@@ -1,0 +1,62 @@
+{
+  "name": "GPSViolation",
+  "type": "object",
+  "properties": {
+    "employee_id": {
+      "type": "string",
+      "description": "Foreign key to Employee entity"
+    },
+    "site_id": {
+      "type": "string",
+      "description": "Foreign key to Site entity"
+    },
+    "violation_type": {
+      "type": "string",
+      "description": "Type of violation (e.g. geofence_exit, geofence_entry, speed_exceed)"
+    },
+    "detected_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the violation was detected"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "GPS latitude coordinate where violation occurred"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "GPS longitude coordinate where violation occurred"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "reviewed",
+        "dismissed"
+      ],
+      "default": "pending",
+      "description": "Violation review status"
+    },
+    "reviewed_by": {
+      "type": "string",
+      "description": "User ID who reviewed the violation"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the violation was reviewed"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes from the review"
+    }
+  },
+  "required": [
+    "employee_id",
+    "site_id",
+    "violation_type",
+    "detected_at",
+    "latitude",
+    "longitude"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "DocumentAcknowledgment",
+  "type": "object",
+  "properties": {
+    "document_id": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "acknowledged_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "signature_data": {
+      "type": "string"
+    },
+    "document_version": {
+      "type": "number"
+    },
+    "ip_address": {
+      "type": "string"
+    },
+    "device_info": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "document_id",
+    "user_id",
+    "acknowledged_at"
+  ]
+}

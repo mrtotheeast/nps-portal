@@ -1,0 +1,114 @@
+{
+  "name": "ClientContact",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "Foreign key to Client entity"
+    },
+    "full_name": {
+      "type": "string",
+      "description": "Contact full name"
+    },
+    "title": {
+      "type": "string",
+      "description": "Job title"
+    },
+    "email": {
+      "type": "string",
+      "description": "Contact email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone number"
+    },
+    "is_main_contact": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is the primary contact for the client"
+    },
+    "invite_status": {
+      "type": "string",
+      "enum": [
+        "not_invited",
+        "invited",
+        "active",
+        "inactive"
+      ],
+      "default": "not_invited",
+      "description": "Portal invitation status"
+    },
+    "invite_sent_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When invitation was sent"
+    },
+    "last_login_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When contact last logged into portal"
+    },
+    "portal_user_id": {
+      "type": "string",
+      "description": "Associated user ID in the system"
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "view_schedule": {
+          "type": "boolean",
+          "default": true
+        },
+        "view_officers": {
+          "type": "boolean",
+          "default": true
+        },
+        "view_incidents": {
+          "type": "boolean",
+          "default": true
+        },
+        "comment_incidents": {
+          "type": "boolean",
+          "default": true
+        },
+        "print_incidents": {
+          "type": "boolean",
+          "default": false
+        },
+        "view_patrol": {
+          "type": "boolean",
+          "default": true
+        },
+        "view_invoices": {
+          "type": "boolean",
+          "default": false
+        },
+        "view_documents": {
+          "type": "boolean",
+          "default": true
+        },
+        "request_services": {
+          "type": "boolean",
+          "default": true
+        },
+        "view_portal_fee": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "description": "Portal access permissions for this contact"
+    },
+    "assigned_sites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of site IDs this contact has access to"
+    }
+  },
+  "required": [
+    "client_id",
+    "full_name",
+    "email"
+  ]
+}

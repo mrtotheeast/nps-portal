@@ -1,0 +1,84 @@
+{
+  "name": "DeletedClientAuditLog",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "Original client ID from deleted Client record"
+    },
+    "client_name": {
+      "type": "string",
+      "description": "Company or organization name"
+    },
+    "primary_contact": {
+      "type": "object",
+      "properties": {
+        "full_name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "description": "Primary contact person (snapshot)"
+    },
+    "service_type": {
+      "type": "string",
+      "enum": [
+        "armed",
+        "unarmed",
+        "both",
+        "spo",
+        "event",
+        "patrol",
+        "other"
+      ],
+      "description": "Type of security service"
+    },
+    "contract_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "contract_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "prospect",
+        "deleted"
+      ],
+      "description": "Status at time of deletion"
+    },
+    "deleted_by": {
+      "type": "string",
+      "description": "Email of user who deleted the client"
+    },
+    "deletion_reason": {
+      "type": "string",
+      "description": "Reason provided for deletion"
+    },
+    "deleted_by_client": {
+      "type": "boolean",
+      "description": "True if client self-deleted"
+    },
+    "archived_client_data": {
+      "type": "object",
+      "description": "Complete snapshot of the deleted client record"
+    }
+  },
+  "required": [
+    "client_id",
+    "client_name",
+    "deleted_by"
+  ]
+}

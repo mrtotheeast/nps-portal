@@ -1,0 +1,151 @@
+{
+  "name": "Client",
+  "type": "object",
+  "properties": {
+    "company_id": {
+      "type": "string",
+      "description": "Foreign key to Company entity (tenant isolation)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Company or organization name"
+    },
+    "primary_contact": {
+      "type": "object",
+      "properties": {
+        "full_name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "description": "Primary contact person"
+    },
+    "additional_contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "full_name": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Additional contact persons"
+    },
+    "billing_address": {
+      "type": "object",
+      "properties": {
+        "street": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        }
+      }
+    },
+    "contract_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "contract_end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "service_type": {
+      "type": "string",
+      "enum": [
+        "armed",
+        "unarmed",
+        "both",
+        "spo",
+        "event",
+        "patrol",
+        "other"
+      ],
+      "description": "Type of security service"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "prospect",
+        "deleted"
+      ],
+      "default": "active"
+    },
+    "system_access": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether client portal access is enabled. Automatically toggles off when portal is deleted."
+    },
+    "notes": {
+      "type": "string"
+    },
+    "contact_name": {
+      "type": "string",
+      "description": "Legacy: primary contact name"
+    },
+    "contact_email": {
+      "type": "string",
+      "description": "Legacy: primary contact email"
+    },
+    "contact_phone": {
+      "type": "string",
+      "description": "Legacy: primary contact phone"
+    },
+    "deletion_initiated_by": {
+      "type": "string",
+      "description": "Who initiated deletion: client or admin"
+    },
+    "deletion_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When deletion was initiated"
+    },
+    "deleted_by_client": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if client self-deleted"
+    },
+    "deletion_reason": {
+      "type": "string",
+      "description": "Optional notes about deletion reason"
+    },
+    "reactivation_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When account was reactivated"
+    },
+    "reactivated_by": {
+      "type": "string",
+      "description": "Admin name who reactivated the account"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

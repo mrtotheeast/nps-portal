@@ -1,0 +1,80 @@
+{
+  "name": "Invoice",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "Foreign key to Client entity"
+    },
+    "invoice_number": {
+      "type": "string",
+      "description": "Unique invoice number"
+    },
+    "issue_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Invoice issue date"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Invoice due date"
+    },
+    "billing_period_start": {
+      "type": "string",
+      "format": "date",
+      "description": "Billing period start date"
+    },
+    "billing_period_end": {
+      "type": "string",
+      "format": "date",
+      "description": "Billing period end date"
+    },
+    "line_items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Array of line items with description, quantity, unit price, amount"
+    },
+    "subtotal": {
+      "type": "number",
+      "description": "Invoice subtotal before tax"
+    },
+    "tax": {
+      "type": "number",
+      "description": "Tax amount"
+    },
+    "total": {
+      "type": "number",
+      "description": "Total invoice amount"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "sent",
+        "paid",
+        "overdue",
+        "void"
+      ],
+      "default": "draft",
+      "description": "Invoice status"
+    },
+    "paid_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When invoice was paid"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes on the invoice"
+    }
+  },
+  "required": [
+    "client_id",
+    "invoice_number",
+    "issue_date",
+    "due_date"
+  ]
+}

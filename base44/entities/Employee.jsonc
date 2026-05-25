@@ -1,0 +1,245 @@
+{
+  "name": "Employee",
+  "type": "object",
+  "properties": {
+    "company_id": {
+      "type": "string",
+      "description": "Foreign key to Company entity"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "Employee first name"
+    },
+    "middleName": {
+      "type": "string",
+      "description": "Employee middle name"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Employee last name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Employee email"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "description": "Employee phone number"
+    },
+    "dateOfBirth": {
+      "type": "string",
+      "format": "date",
+      "description": "Employee date of birth"
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "street": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        }
+      },
+      "description": "Employee address"
+    },
+    "positionId": {
+      "type": "string",
+      "description": "Foreign key to Position entity"
+    },
+    "siteIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of site IDs where employee is assigned"
+    },
+    "supervisor_id": {
+      "type": "string",
+      "description": "ID of the employee's assigned supervisor"
+    },
+    "manager_id": {
+      "type": "string",
+      "description": "ID of the employee's assigned manager"
+    },
+    "employeeId": {
+      "type": "string",
+      "description": "Unique employee ID"
+    },
+    "paychexWorkerId": {
+      "type": "string",
+      "description": "Paychex worker ID for payroll integration"
+    },
+    "employmentType": {
+      "type": "string",
+      "enum": [
+        "officer",
+        "staff"
+      ],
+      "default": "officer",
+      "description": "Type of employment"
+    },
+    "employmentClassification": {
+      "type": "string",
+      "enum": [
+        "W2",
+        "1099"
+      ],
+      "default": "W2",
+      "description": "Tax classification"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "employee",
+        "officer",
+        "supervisor",
+        "manager",
+        "admin"
+      ],
+      "default": "employee",
+      "description": "Employee role in the system"
+    },
+    "positionTitle": {
+      "type": "string",
+      "description": "Job title or position name"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "on_leave",
+        "terminated"
+      ],
+      "default": "active",
+      "description": "Employment status"
+    },
+    "invitation_status": {
+      "type": "string",
+      "enum": [
+        "not_invited",
+        "invited",
+        "active"
+      ],
+      "default": "not_invited",
+      "description": "Portal invitation status"
+    },
+    "invitation_sent_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When invitation was sent"
+    },
+    "must_change_password": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, user must change their password on next login"
+    },
+    "password_reset_code": {
+      "type": "string",
+      "description": "Temporary password reset code (cleared after use)"
+    },
+    "password_reset_expires": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the password reset code expires"
+    },
+    "baseHourlyRate": {
+      "type": "number",
+      "description": "Base hourly rate for payroll"
+    },
+    "maxHours": {
+      "type": "number",
+      "default": 40,
+      "description": "Maximum hours per week"
+    },
+    "hireDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Employee hire date"
+    },
+    "probationEndDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when 90-day probation ends and PTO accrual begins"
+    },
+    "terminatedDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Employee termination date"
+    },
+    "isRehirable": {
+      "type": "boolean",
+      "default": true,
+      "description": "Can employee be rehired"
+    },
+    "ptoBalance": {
+      "type": "number",
+      "default": 0,
+      "description": "Remaining PTO hours"
+    },
+    "emergencyContactName": {
+      "type": "string",
+      "description": "Emergency contact name"
+    },
+    "emergencyContactPhone": {
+      "type": "string",
+      "description": "Emergency contact phone"
+    },
+    "emergencyContactEmail": {
+      "type": "string",
+      "description": "Emergency contact email"
+    },
+    "emergencyContactRelation": {
+      "type": "string",
+      "description": "Emergency contact relationship"
+    },
+    "profilePhotoUrl": {
+      "type": "string",
+      "description": "URL to employee profile photo"
+    },
+    "profilePhotoStatus": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "denied"
+      ],
+      "default": "pending",
+      "description": "Profile photo approval status"
+    },
+    "hasAppAccess": {
+      "type": "boolean",
+      "default": true,
+      "description": "Can employee access the app"
+    },
+    "supervisor_notes": {
+      "type": "string",
+      "description": "Private notes visible only to supervisors and admins"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Employee notes"
+    },
+    "writeUps": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Employee write-ups"
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName"
+  ]
+}

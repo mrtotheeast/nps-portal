@@ -1,0 +1,90 @@
+{
+  "name": "Incident",
+  "type": "object",
+  "properties": {
+    "employee_id": {
+      "type": "string",
+      "description": "Foreign key to Employee entity - who reported this"
+    },
+    "site_id": {
+      "type": "string",
+      "description": "Foreign key to Site entity"
+    },
+    "incident_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When incident occurred"
+    },
+    "incident_type": {
+      "type": "string",
+      "description": "Type of incident"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "medium",
+      "description": "Incident severity"
+    },
+    "description": {
+      "type": "string",
+      "description": "Incident description"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "open",
+        "in_progress",
+        "resolved",
+        "closed"
+      ],
+      "default": "pending",
+      "description": "Incident status"
+    },
+    "reporter_id": {
+      "type": "string",
+      "description": "Foreign key to Employee entity - who reported it"
+    },
+    "assigned_to_id": {
+      "type": "string",
+      "description": "Foreign key to Employee entity - who is handling it"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "description": "GPS location of incident"
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs to photo/video evidence"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    }
+  },
+  "required": [
+    "employee_id",
+    "incident_date",
+    "incident_type",
+    "description"
+  ]
+}

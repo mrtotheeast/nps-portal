@@ -1,0 +1,98 @@
+{
+  "name": "PerformanceReview",
+  "type": "object",
+  "properties": {
+    "employee_id": {
+      "type": "string",
+      "description": "Employee being reviewed"
+    },
+    "reviewer_id": {
+      "type": "string",
+      "description": "User conducting the review"
+    },
+    "review_period_start": {
+      "type": "string",
+      "format": "date",
+      "description": "Start of review period"
+    },
+    "review_period_end": {
+      "type": "string",
+      "format": "date",
+      "description": "End of review period"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date review was conducted"
+    },
+    "overall_rating": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5,
+      "default": 3,
+      "description": "Overall performance rating"
+    },
+    "ratings": {
+      "type": "object",
+      "properties": {
+        "quality_of_work": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "reliability": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "communication": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "teamwork": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "professionalism": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5
+        }
+      },
+      "description": "Category-specific ratings"
+    },
+    "strengths": {
+      "type": "string",
+      "description": "Employee strengths noted in review"
+    },
+    "areas_for_improvement": {
+      "type": "string",
+      "description": "Areas where employee can improve"
+    },
+    "reviewer_comments": {
+      "type": "string",
+      "description": "Comments from reviewer"
+    },
+    "employee_comments": {
+      "type": "string",
+      "description": "Employee response to review"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "acknowledged"
+      ],
+      "default": "draft",
+      "description": "Review status"
+    }
+  },
+  "required": [
+    "employee_id",
+    "reviewer_id",
+    "review_date"
+  ]
+}

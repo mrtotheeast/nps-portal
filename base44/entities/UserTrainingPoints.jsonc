@@ -1,0 +1,23 @@
+{
+  "name": "UserTrainingPoints",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "User ID"
+    },
+    "total_points": {
+      "type": "number",
+      "default": 0,
+      "description": "Total training points earned"
+    },
+    "trainings_completed": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of trainings completed"
+    }
+  },
+  "required": [
+    "user_id"
+  ]
+}

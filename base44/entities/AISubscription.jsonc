@@ -1,0 +1,50 @@
+{
+  "name": "AISubscription",
+  "type": "object",
+  "properties": {
+    "company_id": {
+      "type": "string",
+      "description": "Foreign key to Company entity"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "trial"
+      ],
+      "default": "inactive",
+      "description": "Subscription status"
+    },
+    "plan": {
+      "type": "string",
+      "enum": [
+        "monthly",
+        "annual"
+      ],
+      "description": "Subscription plan type"
+    },
+    "purchase_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the subscription was purchased"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the subscription expires"
+    },
+    "stripe_subscription_id": {
+      "type": "string",
+      "description": "Stripe subscription ID for management"
+    },
+    "stripe_customer_id": {
+      "type": "string",
+      "description": "Stripe customer ID"
+    }
+  },
+  "required": [
+    "company_id",
+    "status"
+  ]
+}

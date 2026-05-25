@@ -1,0 +1,315 @@
+<!-- CCW DATA LAST UPDATED: 2026-05-15 — Next scheduled update: June 1, 2026 -->
+<!-- To update this file manually, regenerate from the NPS Portal app CCW Map page -->
+<!-- or contact your administrator to trigger a manual refresh -->
+<!-- NOTE: This standalone HTML file contains an iframe embed to the live NPS Portal CCW map. -->
+<!-- The live map data is automatically updated on the 1st of each month. -->
+<!-- If state data changes are detected, Super Admins will receive an email notification -->
+<!-- listing which states changed so this comment block can be updated accordingly. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CCW Reciprocity Map Embed Code</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #f8fafc;
+      color: #1e293b;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    }
+    h1 {
+      color: #1a2b4a;
+      border-bottom: 3px solid #c9a227;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h2 {
+      color: #1a2b4a;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+    .code-block {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 16px 0;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .code-copy-btn {
+      background: #c9a227;
+      color: #1a2b4a;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    .code-copy-btn:hover {
+      background: #e6c35c;
+    }
+    .note {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 6px;
+      color: #166534;
+    }
+    .warning {
+      background: #fef3c7;
+      border-left: 4px solid #eab308;
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 6px;
+      color: #92400e;
+    }
+    .list-item {
+      margin: 12px 0 12px 24px;
+      line-height: 1.6;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    th {
+      background: #1a2b4a;
+      color: white;
+      padding: 12px;
+      text-align: left;
+    }
+    td {
+      border: 1px solid #e2e8f0;
+      padding: 12px;
+    }
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🗺️ CCW Reciprocity Map — Embed Code for NationwidePolice.com</h1>
+    
+    <p>
+      This page contains the HTML code to embed the live <strong>CCW Reciprocity Map</strong> on your website. The map is a public resource that does not require authentication.
+    </p>
+
+    <div class="note">
+      <strong>✓ Public Route:</strong> The CCW Reciprocity Map is accessible without login. No authentication required for website visitors.
+    </div>
+
+    <!-- ========== BASIC EMBED CODE ========== -->
+    <h2>1. Basic Embed Code (Recommended)</h2>
+    
+    <p>Use this code to embed the map with a fixed height that works across all screen sizes.</p>
+
+    <div class="code-block">&lt;iframe 
+  src="https://npsportal.app/CCWReciprocityMap"
+  width="100%"
+  height="750px"
+  frameborder="0"
+  style="border:none;display:block;"
+  title="CCW Reciprocity Map — Nationwide Police Services"
+  loading="lazy"&gt;
+&lt;/iframe&gt;</div>
+    <button class="code-copy-btn" onclick="copyCode(document.querySelectorAll('.code-block')[0].innerText)">📋 Copy Code</button>
+
+    <h3>Parameters Explained:</h3>
+    <div class="list-item"><strong>src:</strong> The public URL to the CCW map (replace https://npsportal.app with your actual domain)</div>
+    <div class="list-item"><strong>width="100%":</strong> Makes the iframe fill the full width of its container</div>
+    <div class="list-item"><strong>height="750px":</strong> Sets a fixed height. Adjust this value based on your design needs</div>
+    <div class="list-item"><strong>loading="lazy":</strong> Defers loading the iframe until it's about to enter the viewport (improves page speed)</div>
+
+    <!-- ========== RESPONSIVE EMBED CODE ========== -->
+    <h2>2. Responsive Embed Code (For Flexible Sizing)</h2>
+    
+    <p>Use this code if you want the iframe to maintain a specific aspect ratio on all screen sizes.</p>
+
+    <div class="code-block">&lt;div style="position: relative; width: 100%; padding-bottom: 56.25%;"&gt;
+  &lt;iframe 
+    src="https://npsportal.app/CCWReciprocityMap"
+    width="100%"
+    height="100%"
+    style="position: absolute; top: 0; left: 0; border: none;"
+    frameborder="0"
+    title="CCW Reciprocity Map — Nationwide Police Services"
+    loading="lazy"&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;</div>
+    <button class="code-copy-btn" onclick="copyCode(document.querySelectorAll('.code-block')[1].innerText)">📋 Copy Code</button>
+
+    <h3>This Method:</h3>
+    <div class="list-item">✓ Maintains a 16:9 aspect ratio on all devices</div>
+    <div class="list-item">✓ Automatically scales width while keeping proportions</div>
+    <div class="list-item">✓ Change <code>56.25%</code> to <code>75%</code> for 4:3 aspect ratio</div>
+
+    <!-- ========== SETUP INSTRUCTIONS ========== -->
+    <h2>3. Setup Instructions</h2>
+
+    <h3>Step 1: Update the Domain</h3>
+    <p>
+      Replace <code>https://npsportal.app</code> with your actual deployed NPS Portal URL:
+    </p>
+    <div class="code-block">https://your-actual-nps-domain.com/CCWReciprocityMap</div>
+
+    <h3>Step 2: Choose Your Embed Method</h3>
+    <div class="list-item">
+      <strong>Option A (Simpler):</strong> Use the Basic Embed Code (Option 1) if you prefer fixed sizing
+    </div>
+    <div class="list-item">
+      <strong>Option B (Responsive):</strong> Use the Responsive Embed Code (Option 2) for fluid layouts
+    </div>
+
+    <h3>Step 3: Paste into Your Website HTML</h3>
+    <p>
+      Insert the chosen code into the HTML of your webpage where you want the map to appear. Example:
+    </p>
+    <div class="code-block">&lt;section id="ccw-map"&gt;
+  &lt;h2&gt;Concealed Carry Reciprocity Map&lt;/h2&gt;
+  
+  &lt;!-- Paste the embed code here --&gt;
+  &lt;iframe 
+    src="https://your-domain.com/CCWReciprocityMap"
+    width="100%"
+    height="750px"
+    ...
+  &lt;/iframe&gt;
+&lt;/section&gt;</div>
+
+    <h3>Step 4: Test the Embed</h3>
+    <div class="list-item">Load your website in a browser</div>
+    <div class="list-item">Verify the map displays and is interactive</div>
+    <div class="list-item">Test state selection and reciprocity calculations</div>
+
+    <!-- ========== SECURITY & COMPLIANCE ========== -->
+    <h2>4. Security & Data Protection</h2>
+
+    <div class="note">
+      <strong>✓ Security Verified:</strong> The CCW Reciprocity Map is completely isolated from internal company data. The embedded map:
+    </div>
+
+    <div class="list-item">✓ Does NOT access any user authentication systems</div>
+    <div class="list-item">✓ Contains ONLY public CCW state law data</div>
+    <div class="list-item">✓ Does NOT expose employee, payroll, or client information</div>
+    <div class="list-item">✓ Does NOT trigger API calls to protected backend services</div>
+    <div class="list-item">✓ Can be safely embedded via iframe on any website</div>
+
+    <!-- ========== CUSTOMIZATION ========== -->
+    <h2>5. Customization Options</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Default</th>
+          <th>Options / Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>width</td>
+          <td>100%</td>
+          <td>100%, 800px, 1200px, auto</td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>750px</td>
+          <td>600px, 800px, 1000px (adjust to fit your layout)</td>
+        </tr>
+        <tr>
+          <td>loading</td>
+          <td>lazy</td>
+          <td>lazy, eager (eager = load immediately)</td>
+        </tr>
+        <tr>
+          <td>style</td>
+          <td>border:none</td>
+          <td>Add border, shadows, or other CSS as needed</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Example: Custom Styling</h3>
+    <div class="code-block">&lt;iframe 
+  src="https://npsportal.app/CCWReciprocityMap"
+  width="100%"
+  height="800px"
+  frameborder="0"
+  style="border: 2px solid #ccc; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  title="CCW Reciprocity Map"
+  loading="lazy"&gt;
+&lt;/iframe&gt;</div>
+
+    <!-- ========== TROUBLESHOOTING ========== -->
+    <h2>6. Troubleshooting</h2>
+
+    <h3>Map Not Loading?</h3>
+    <div class="list-item">✓ Verify the domain URL is correct</div>
+    <div class="list-item">✓ Check that your domain allows iframe embedding (no X-Frame-Options: DENY header)</div>
+    <div class="list-item">✓ Ensure HTTPS is used on both your website and the iframe source</div>
+
+    <h3>Map Appears Cut Off?</h3>
+    <div class="list-item">✓ Increase the height value (e.g., 800px instead of 750px)</div>
+    <div class="list-item">✓ Use the responsive embed code (Option 2) for better scaling</div>
+
+    <h3>Mobile Responsiveness Issues?</h3>
+    <div class="list-item">✓ Use the responsive embed code that maintains aspect ratio</div>
+    <div class="list-item">✓ Test on multiple devices (phone, tablet, desktop)</div>
+
+    <!-- ========== SUPPORT ========== -->
+    <h2>7. Support & Updates</h2>
+
+    <div class="note">
+      <strong>Last Updated:</strong> May 13, 2026<br>
+      <strong>Status:</strong> Public production route<br>
+      <strong>Update Frequency:</strong> CCW reciprocity data updates daily at 9:00 AM ET
+    </div>
+
+    <p>
+      The CCW data is automatically updated daily to reflect changes in state laws. Website visitors will always see the most current information.
+    </p>
+
+    <div class="footer">
+      <p>
+        <strong>Nationwide Police Services LLC</strong> — CCW Reciprocity Map<br>
+        For questions about this embed code, contact your development team.<br>
+        © 2026 All rights reserved.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function copyCode(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Code copied to clipboard!');
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+      });
+    }
+  </script>
+</body>
+</html>

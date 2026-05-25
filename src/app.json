@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "NPS Portal",
+    "slug": "nps-portal",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./public/favicon.ico",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./public/favicon.ico",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTabletMode": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "NPS Portal uses your location to verify you are at your assigned work site when clocking in and out, to track patrol routes and checkpoint scanning, and to detect geofence violations when officers leave their assigned coverage area. Example: When you clock in for your shift, your GPS location is compared to your assigned site address to confirm you are on-site.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "NPS Portal uses your location in the background to continuously track active patrol routes, record checkpoint arrivals, and monitor officer positions on the live operations map. Example: During an active patrol, your location updates every 30 seconds so supervisors can see your patrol progress and verify checkpoint completion.",
+        "NSLocationAlwaysUsageDescription": "NPS Portal uses your location in the background to continuously track active patrol routes and monitor officer positions on the live operations map."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./public/favicon.ico",
+        "backgroundColor": "#ffffff"
+      }
+    }
+  }
+}
