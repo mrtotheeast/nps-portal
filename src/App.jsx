@@ -14,6 +14,7 @@ import ThemeManager from '@/components/shared/ThemeManager';
 
 import LandingPage from './pages/LandingPage';
 import CompanyOnboarding from './pages/CompanyOnboarding.jsx';
+import Login from "./pages/Login";
 import ForgotPassword from './pages/ForgotPassword';
 import CCWReciprocityMapPublic from './pages/CCWReciprocityMapPublic';
 import CCWMapEmbed from './pages/CCWMapEmbed';
@@ -249,6 +250,7 @@ const AuthenticatedApp = () => {
       ) : user && ["admin", "super_admin"].includes(user.role) ? <Navigate to="/OnboardingManagement" replace /> : <CompanyOnboarding />} />
       
       {/* Password Reset (unauthenticated) */}
+      <Route path="/Login" element={<Login />} />
       <Route path="/ForgotPassword" element={<ForgotPassword />} />
 
       {/* Client Invite Acceptance */}
