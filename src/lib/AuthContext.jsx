@@ -168,7 +168,7 @@ export const AuthProvider = ({ children }) => {
     if (lastPage !== '/' && lastPage !== '/login' && lastPage !== '/LandingPage') {
       sessionStorage.setItem('nps_last_page', lastPage);
     }
-    base44.auth.redirectToLogin();
+    window.location.href = "/Login";
   };
 
   return (

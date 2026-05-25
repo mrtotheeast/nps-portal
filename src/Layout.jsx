@@ -232,7 +232,7 @@ function LayoutInner({ children, currentPageName }) {
     );
   }
 
-  if (!user) { base44.auth.redirectToLogin(); return null; }
+  if (!user) { window.location.href = "/Login"; return null; }
 
   const handlePasswordChanged = () => {
     setMustChangePassword(false);

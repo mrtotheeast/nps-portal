@@ -16,6 +16,7 @@ export default function Login() {
     const { data, error: authError } = await supabase.auth.signInWithPassword({ email, password });
     if (authError) { setError(authError.message); setLoading(false); return; }
     const { data: profile } = await supabase.from("user_profile").select("role").eq("id", data.user.id).single();
+    await new Promise(r => setTimeout(r, 500));
     const role = profile?.role;
     if (role === "super_admin" || role === "admin") navigate("/AdminDashboard");
     else if (role === "supervisor" || role === "manager") navigate("/SupervisorDashboard");
