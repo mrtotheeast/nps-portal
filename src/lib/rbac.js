@@ -7,7 +7,6 @@ const COMMON_PAGES = [
 ];
 
 const ROLE_PERMISSIONS = {
-  super_admin: { dashboard: 'SuperAdminDashboard', permissions: ['all'] },
   super_admin: {
     label: 'Super Admin',
     dashboard: 'AdminDashboard',
