@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { supabase } from "@/api/supabaseClient";
 
 export default function Login() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -13,15 +11,32 @@ export default function Login() {
     e.preventDefault();
     setError("");
     setLoading(true);
+
     const { data, error: authError } = await supabase.auth.signInWithPassword({ email, password });
-    if (authError) { setError(authError.message); setLoading(false); return; }
-    const { data: profile } = await supabase.from("user_profile").select("role").eq("id", data.user.id).single();
-    await new Promise(r => setTimeout(r, 500));
+
+    if (authError) {
+      setError(authError.message);
+      setLoading(false);
+      return;
+    }
+
+    // Get role and redirect
+    const { data: profile } = await supabase
+      .from("user_profile")
+      .select("role")
+      .eq("id", data.user.id)
+      .single();
+
     const role = profile?.role;
-    if (role === "super_admin" || role === "admin") navigate("/AdminDashboard");
-    else if (role === "supervisor" || role === "manager") navigate("/SupervisorDashboard");
-    else if (role === "client") navigate("/ClientDashboard");
-    else navigate("/EmployeeDashboard");
+    if (role === "super_admin" || role === "admin") {
+      window.location.href = "/AdminDashboard";
+    } else if (role === "supervisor" || role === "manager") {
+      window.location.href = "/SupervisorDashboard";
+    } else if (role === "client") {
+      window.location.href = "/ClientDashboard";
+    } else {
+      window.location.href = "/EmployeeDashboard";
+    }
   };
 
   return (
