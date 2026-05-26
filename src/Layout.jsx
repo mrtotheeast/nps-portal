@@ -63,7 +63,7 @@ const ROOT_PAGES = new Set([
 ]);
 
 function LayoutInner({ children, currentPageName }) {
-  const { user, isLoadingAuth } = useAuth();
+  const { user, isLoadingAuth, authChecked } = useAuth();
   const { company, loading: companyLoading } = useCompany();
   const [showSplash, setShowSplash] = useState(() => !splashShown);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -232,6 +232,7 @@ function LayoutInner({ children, currentPageName }) {
     );
   }
 
+  if (!authChecked) { return null; }
   if (!user) { window.location.href = "/Login"; return null; }
 
   const handlePasswordChanged = () => {
