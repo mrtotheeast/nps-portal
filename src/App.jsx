@@ -217,7 +217,12 @@ const AuthenticatedApp = () => {
     if (user?.role) syncViewForRole(user.role);
   }, [user?.role]);
 
-  if (isLoadingPublicSettings || isLoadingAuth) {
+  // Check if we're on a public route that should never be blocked by auth loading
+  const isPublicRoute = ['/Login', '/ForgotPassword', '/PublicAccess'].some(
+    r => window.location.pathname === r || window.location.pathname.startsWith(r)
+  );
+
+  if (!isPublicRoute && (isLoadingPublicSettings || isLoadingAuth)) {
     return (
       <div className="fixed inset-0 flex items-center justify-center">
         <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
