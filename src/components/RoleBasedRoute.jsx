@@ -27,7 +27,7 @@ export default function RoleBasedRoute({ pageName, allowedRoles, children }) {
   const userRole = user?.role || 'employee';
   const { activeView } = useDualView();
 
-  if (isLoadingAuth || isLoadingPublicSettings) {
+  if (!authChecked) {
     return (
       <div className="fixed inset-0 flex items-center justify-center">
         <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
@@ -35,7 +35,7 @@ export default function RoleBasedRoute({ pageName, allowedRoles, children }) {
     );
   }
 
-  if (!user && !isLoadingAuth) return <Navigate to="/Login" replace />;
+  if (!user) return <Navigate to="/Login" replace />;
 
   // Hard block: non-admin roles cannot access AdminDashboard regardless of RBAC config
   const ADMIN_ONLY_PAGES = new Set(['AdminDashboard', 'AdminMore', 'AdminAnalyticsDashboard', 'SuperAdminDashboard']);
