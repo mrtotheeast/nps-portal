@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
         ...authUser,
         ...profile,
         email: authUser.email,
-        role: profile?.role || 'employee',
+        role: profile?.role || authUser.role || 'employee',
       };
 
       setUser(resolvedUser);
@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error('Failed to load user profile:', error);
       // Still set authenticated even if profile fetch fails
-      setUser({ ...authUser, role: 'employee' });
+      setUser({ ...authUser, role: authUser.role || 'employee' });
       setIsAuthenticated(true);
       setAuthChecked(true);
     } finally {
