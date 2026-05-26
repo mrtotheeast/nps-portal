@@ -22,7 +22,7 @@ const MANAGEMENT_ONLY_PAGES = new Set([
 ]);
 
 export default function RoleBasedRoute({ pageName, allowedRoles, children }) {
-  const { user, isLoadingAuth, isLoadingPublicSettings } = useAuth();
+  const { user, authChecked } = useAuth();
   // user.role is fully resolved by AuthContext (super_admin is never downgraded)
   const userRole = user?.role || 'employee';
   const { activeView } = useDualView();
